@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    ports:
+      - "21027:21027/udp"
+      - "22000:22000/tcp"
+      - "22000:22000/udp"
+      - "8384:8384/tcp"
+    volumes:
+      - /home/jan/.containers/syncthinh/config:/config:rw
+      - /home/jan/notes/main:/notes/main:rw
+    restart: unless-stopped
